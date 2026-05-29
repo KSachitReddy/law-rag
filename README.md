@@ -201,8 +201,8 @@ See `utils/prompt_templates.py` for full implementation.
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourname/law-ai-india.git
-cd law-ai-india
+git clone https://github.com/KSachitReddy/law-rag.git
+cd law-rag
 ```
 
 ### 2. Create virtual environment
