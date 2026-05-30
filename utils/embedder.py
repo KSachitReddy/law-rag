@@ -14,7 +14,7 @@ from typing import List, Dict, Any, Optional
 
 import chromadb
 from chromadb.config import Settings
-from langchain.schema import Document
+from langchain_core.documents import Document
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
 

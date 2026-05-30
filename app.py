@@ -483,6 +483,8 @@ for msg in st.session_state.messages:
             with st.expander("📎 Legal Citations & Retrieved Context", expanded=False):
                 for i, ctx in enumerate(msg["citations"], 1):
                     score_pct = int((1 - ctx.get("score", 0)) * 100)
+                    section_str = f" · §{ctx.get('section', '')}" if ctx.get("section") else ""
+                    chapter_str = f" · Ch.{ctx.get('chapter', '')}" if ctx.get("chapter") else ""
                     st.markdown(
                         f"""
                         <div class='citation-box'>
@@ -494,9 +496,7 @@ for msg in st.session_state.messages:
                                 <span class='citation-score'>Relevance {score_pct}%</span>
                             </div>
                             <div style='font-size:0.75rem;color:#8b949e;margin-bottom:6px'>
-                                📄 Page {ctx.get("page_number","?")}
-                                {" · §" + ctx.get("section","") if ctx.get("section") else ""}
-                                {" · Ch." + ctx.get("chapter","") if ctx.get("chapter") else ""}
+                                📄 Page {ctx.get("page_number","?")}{section_str}{chapter_str}
                             </div>
                             <div style='font-size:0.82rem;color:#c9d1d9;
                                         border-top:1px solid #30363d;padding-top:6px;
@@ -592,6 +592,8 @@ if prompt := st.chat_input(
         with st.expander("📎 Legal Citations & Retrieved Context", expanded=False):
             for i, ctx in enumerate(citations, 1):
                 score_pct = int((1 - ctx.get("score", 0)) * 100)
+                section_str = f" · §{ctx.get('section', '')}" if ctx.get("section") else ""
+                chapter_str = f" · Ch.{ctx.get('chapter', '')}" if ctx.get("chapter") else ""
                 st.markdown(
                     f"""
                     <div class='citation-box'>
@@ -603,9 +605,7 @@ if prompt := st.chat_input(
                             <span class='citation-score'>Relevance {score_pct}%</span>
                         </div>
                         <div style='font-size:0.75rem;color:#8b949e;margin-bottom:6px'>
-                            📄 Page {ctx.get("page_number","?")}
-                            {" · §" + ctx.get("section","") if ctx.get("section") else ""}
-                            {" · Ch." + ctx.get("chapter","") if ctx.get("chapter") else ""}
+                            📄 Page {ctx.get("page_number","?")}{section_str}{chapter_str}
                         </div>
                         <div style='font-size:0.82rem;color:#c9d1d9;
                                     border-top:1px solid #30363d;padding-top:6px;
